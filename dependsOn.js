@@ -110,20 +110,6 @@
             return -1;
         }
 
-        function testDependents(name){
-            console.log('test :', name);
-        }
-
-        this.register(testDependents, 'zero');
-        this.register(testDependents, 'one', ['zero']);
-        this.register(testDependents, 'allSecond', ['allFirst', ALL_KEY]);
-        this.register(testDependents, 'allFirst', [ALL_KEY]);
-        this.register(testDependents, 'two', ['zero', 'one']);
-        this.register(testDependents, 'three', ['zero', 'one', 'two', 'one']);
-        this.register(testDependents, 'mixed', ['zero', 'three']);
-        this.register(testDependents, 'last', ['three', 'afterOne']);
-        this.register(testDependents, 'afterOne', ['one']);
-        $(document).ready(initializeDependents);
     };
 
     window.DependsOn = new DependsOn();
